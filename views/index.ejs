@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThoughtTrail</title>
+    <link rel="stylesheet" href="/stlye.css">
+</head>
+<body>
+    <h1>ThoughtTrail</h1>
+    <% for(post of posts){%>
+        <div class="post">
+            <h3 class="user">@<%= post.username %></h3>
+           
+            <h4 class="content"> <%= post.content %></h4>
+
+            <a href="http://localhost:8080/posts/<%= post.id %>"><button>See More</button></a>
+
+
+            <a href="http://localhost:8080/posts/<%= post.id %>/edit"> <button>Edit Post</button></a>
+            <br>
+             
+            <form action="/posts/<%= post.id %>?_method=DELETE" method="POST">
+                <br>
+                <button type="submit">Delete</button>
+            </form>
+            
+         
+
+          
+        </div>
+    <%}%>
+    <br>
+
+    <a href="http://localhost:8080/posts/new"><button>Create New</button></a>
+    
+   
+</body>
+<footer>
+    <p> Sunil Matkar &copy;2023 All rights reserved.</p>
+</footer>
+</html>
